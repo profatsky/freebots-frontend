@@ -50,19 +50,31 @@ import SidebarNavigation from '@/components/Sidebar/SidebarNavigation.vue';
         </section>
 
         <section id="configuring-settings">
-          <h2>Настройки конфигурации</h2>
+          <h2>Как настроить конфиг чат-бота</h2>
+          <p>Конфиг - это файл <code>.env</code>, который содержит необходимые для запуска чат-бота данные.</p>
           <p>
-            Выполните следующие действия для успешной настройки конфигурации:
+            Выполните следующие действия для настройки конфига:
           </p>
-          <ul>
-            <li>создайте отдельную папку для чат-бота и перенесите в нее все файлы из ZIP-архива</li>
-            <li>в файле .env укажите токен чат-бота (получите его в чат-боте <a href="https://t.me/BotFather" target="_blank">@BotFather</a>) и ваш идентификатор в Telegram (получите его в чат-боте <a href="https://t.me/getmyid_bot" target="_blank">@getmyid_bot</a>)</li>
-            <li>если вы используете отправку писем на электронную почту, необходимо указать вашу Gmail почту и пароль в файле .env, а также пароль приложения Google (как получить пароль приложения Google читайте по <a href="https://support.google.com/mail/answer/185833?hl=ru" target="_blank">ссылке</a></li>
-          </ul>
+          <ol>
+            <li>Cоздайте отдельную папку для чат-бота и перенесите в нее все файлы из ZIP-архива</li>
+            <li>Переименуйте файл <code>.env.example</code> в <code>.env</code></li>
+            <li>В файле <code>.env</code> укажите токен чат-бота (получите его в чат-боте <a href="https://t.me/BotFather" target="_blank">@BotFather</a>) и ваш идентификатор в Telegram (получите его в чат-боте <a href="https://t.me/getmyid_bot" target="_blank">@getmyid_bot</a>)</li>
+            <li>Если вы используете отправку писем на электронную почту, необходимо указать вашу Gmail почту и пароль в файле .env, а также пароль приложения Google (как получить пароль приложения Google читайте по <a href="https://support.google.com/mail/answer/185833?hl=ru" target="_blank">ссылке</a></li>
+          </ol>
         </section>
         
+        <section id="docker">
+          <h2>Запуск с помощью Docker</h2>
+          <p>Если у вас установлен Docker, то с помощью него вы легко можете запустить чат-бота. В случае, если у вас нет Docker, перейдите к разделу <a href="#setting-up-environment">Настройка виртуального окружения, установка пакетов и запуск</a>.</p>
+          <p>Для запуска с помощью Docker выполните следующие действия:</p>
+          <ol>
+            <li>Создайте образ с помощью команды <code>docker build . -t freebot</code></li>
+            <li>Запустите Docker-контейнера с помощью команды <code>docker run -d freebot</code></li>
+          </ol>
+        </section>
+
         <section id="setting-up-environment">
-          <h2>Настройка виртуального окружения, установка пакетов и запуск</h2>
+          <h2>Настройка виртуального окружения, установка пакетов и запуск вручную</h2>
           <p>
             Выполните следующие действия для успешной настройки виртуального окружения, установки пакетов и запуска:
           </p>
@@ -73,19 +85,19 @@ import SidebarNavigation from '@/components/Sidebar/SidebarNavigation.vue';
             В папке с чат-ботом откройте командную строку и в зависимости от ОС выполните необходимые команды.
           </p>
           <h3>Команды для Windows:</h3>
-          <ul>
-            <li>создайте виртуальное окружение с помощью команды <code>python -m venv venv</code></li>
-            <li>активируйте виртуальное окружение с помощью команды <code>venv\Scripts\activate</code></li>
-            <li>установите пакеты с помощью команды <code>pip install -r requirements.txt</code></li>
-            <li>запустите чат-бота с помощью команды <code>python main.py</code></li>
-          </ul>
+          <ol>
+            <li>Создайте виртуальное окружение с помощью команды <code>python -m venv venv</code></li>
+            <li>Активируйте виртуальное окружение с помощью команды <code>venv\Scripts\activate</code></li>
+            <li>Установите пакеты с помощью команды <code>pip install -r requirements.txt</code></li>
+            <li>Запустите чат-бота с помощью команды <code>python main.py</code></li>
+          </ol>
           <h3>Команды для Linux и macOS:</h3>
-          <ul>
-            <li>создайте виртуальное окружение с помощью команды <code>python3 -m venv venv</code></li>
-            <li>активируйте виртуальное окружение с помощью команды <code>source venv/bin/activate</code></li>
-            <li>установите пакеты с помощью команды <code>pip install -r requirements.txt</code></li>
-            <li>запустите чат-бота с помощью команды <code>python3 main.py</code></li>
-          </ul>
+          <ol>
+            <li>Создайте виртуальное окружение с помощью команды <code>python3 -m venv venv</code></li>
+            <li>Активируйте виртуальное окружение с помощью команды <code>source venv/bin/activate</code></li>
+            <li>Установите пакеты с помощью команды <code>pip install -r requirements.txt</code></li>
+            <li>Запустите чат-бота с помощью команды <code>python3 main.py</code></li>
+          </ol>
           <p>
             Если вы закрыли командную строку и хотите снова запустить чат-бота, вам понадобиться активировать виртуальное окружение в той папке, где вы его создали, но создавать его снова и скачивать пакеты больше не нужно.
           </p>
