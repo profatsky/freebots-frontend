@@ -51,9 +51,13 @@
 :root {
   --main-black: #14142B;
   --main-white: #FEFEFE;
+  --white-alpha-20: rgba(255, 255, 255, 0.2);
 
   --primary: #5F2EEA;
   --primary-dark: #2A00A2;
+  --primary-light: #7C3AED;
+  --primary-alpha-10: rgba(95, 46, 234, 0.1);
+  --primary-alpha-30: rgba(95, 46, 234, 0.3);
 
   --body-text: #4E4B66;
   --light-gray: #EFF0F6;
@@ -67,6 +71,22 @@
   --error-dark: #C30052;
   --error: #ED2E7E;
   --error-light: #FFF3F8;
+
+  --warning-dark: #B45309;
+  --warning: #F59E0B;
+  --warning-light: #FEF3C7;
+
+  --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  --gradient-primary-light: linear-gradient(135deg, rgba(95, 46, 234, 0.05) 0%, rgba(95, 46, 234, 0.02) 100%);
+  --gradient-secondary: linear-gradient(135deg, var(--main-white) 0%, var(--light-gray) 100%);
+  --gradient-shine: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+
+  --shadow-primary: 0 4px 12px rgba(95, 46, 234, 0.3);
+  --shadow-primary-hover: 0 6px 20px rgba(95, 46, 234, 0.4);
+  --shadow-primary-active: 0 2px 8px rgba(95, 46, 234, 0.3);
+  --shadow-secondary: 0 2px 8px rgba(17, 17, 17, 0.1);
+  --shadow-secondary-hover: 0 4px 12px rgba(17, 17, 17, 0.15);
+  --shadow-secondary-active: 0 1px 4px rgba(17, 17, 17, 0.1);
 }
 
 * {
@@ -130,17 +150,18 @@ button {
   }
 
   .page__content {
-    margin-left: 64px;
+    margin-left: 80px;
   }
 }
 
 @media (max-width: 767px) {
   .container {
-    margin: 0 20px;
-    width: 280px;
+    margin: 0 16px;
+    width: calc(100% - 32px);
+    max-width: 400px;
   }
 
   .page__content {
-    margin-left: 44px;
+    margin-left: 64px;
   }
 }

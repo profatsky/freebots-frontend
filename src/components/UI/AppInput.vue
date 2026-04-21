@@ -24,7 +24,7 @@ export default {
 .input {
   background-color: var(--main-white);
   border-radius: 16px;
-  border: 0;
+  border: 2px solid var(--gray-lines);
   padding: 14px 24px;
 
   font-family: 'Montserrat';
@@ -34,25 +34,30 @@ export default {
   color: var(--body-text);
 }
 
+.input:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
 .input::-webkit-input-placeholder {
   color: var(--placeholder); 
 }
 
 @media (min-width: 768px) and (max-width: 1169px) { 
   .input {
-    font-size: 14px;
-    line-height: 28px;
-    padding: 6px 20px;
+    font-size: 15px;
+    line-height: 1.4;
+    padding: 12px 20px;
     border-radius: 12px;
   }
 }
 
 @media (max-width: 767px) {
   .input {
-    font-size: 8px;
-    line-height: 12px;
-    padding: 6px 8px;
-    border-radius: 8px;
+    font-size: 16px;
+    line-height: 1.4;
+    padding: 12px 16px;
+    border-radius: 12px;
   }
 }
 </style>

@@ -5,6 +5,8 @@ import AppTextarea from '@/components/UI/AppTextarea.vue';
 import AppSelect from '@/components/UI/AppSelect.vue';
 import AppRoundButton from '@/components/UI/AppRoundButton.vue';
 import AppFileInput from '@/components/UI/AppFileInput.vue';
+import CollapsibleSection from '@/components/UI/CollapsibleSection.vue';
+import GradientButton from '@/components/UI/GradientButton.vue';
 
 export default {
   AppButton,
@@ -14,4 +16,6 @@ export default {
   AppSelect,
   AppRoundButton,
   AppFileInput,
+  CollapsibleSection,
+  GradientButton,
 };

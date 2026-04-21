@@ -75,6 +75,10 @@ const dialogueTrigerTypes = ref([
   gap: 20px;
   align-items: center;
   margin-bottom: 20px;
+  padding: 16px;
+  background-color: var(--light-gray);
+  border-radius: 8px;
+  border: 1px solid var(--gray-lines);
 }
 
 .dialogue-row__trigger {
@@ -96,6 +100,7 @@ const dialogueTrigerTypes = ref([
   .dialogue-row {
     gap: 12px;
     margin-bottom: 12px;
+    padding: 14px;
   }
 
   .dialogue-row__trigger {
@@ -109,20 +114,26 @@ const dialogueTrigerTypes = ref([
 
 @media (max-width: 767px) {
   .dialogue-row {
-    gap: 6px;
+    gap: 8px;
     margin-bottom: 8px;
+    padding: 12px;
+    flex-wrap: nowrap;
   }
 
   .dialogue-row__trigger {
-    gap: 6px;
+    gap: 8px;
+    flex: 1;
+    min-width: 0;
   }
 
   .trigger__input {
-    width: 66px;
+    min-width: 80px;
+    flex: 1;
   }
 
   .dialogue-row__btns {
-    gap: 4px;
+    gap: 6px;
+    flex-shrink: 0;
   }
 }
 </style>

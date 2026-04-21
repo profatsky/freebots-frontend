@@ -30,6 +30,9 @@ const closeModal = () => {
   background: rgba(0, 0, 0, 0.3);
   position: fixed;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
 }
 
 .modal {
@@ -37,6 +40,9 @@ const closeModal = () => {
   background-color: var(--main-white);
   border-radius: 16px;
   padding: 28px;
+  width: 90%;
+  max-width: 500px;
+  overflow-y: auto;
 }
 
 .modal__close-btn {
@@ -58,6 +64,8 @@ const closeModal = () => {
   .modal {
     border-radius: 12px;
     padding: 20px;
+    width: 85%;
+    max-width: 450px;
   }
 
   .modal__close-btn img {
@@ -72,19 +80,29 @@ const closeModal = () => {
 }
 
 @media (max-width: 767px) {
+  .modal__wrapper {
+    padding: 20px;
+    align-items: flex-start;
+    padding-top: 10vh;
+  }
+
   .modal {
-    border-radius: 8px;
-    padding: 16px;
+    border-radius: 12px;
+    padding: 20px;
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+    max-height: 80vh;
   }
 
   .modal__close-btn img {
-    width: 10px;
-    height: 10px;
+    width: 16px;
+    height: 16px;
   }
 
   .modal__content {
-    margin: 10px 0px;
-    padding: 12px;
+    margin: 12px 0px;
+    padding: 16px;
   }
 }
 </style>

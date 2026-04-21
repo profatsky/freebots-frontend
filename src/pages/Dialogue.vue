@@ -13,16 +13,18 @@ import msgPurpleIcon from '@/assets/icons/blocks/msg-purple.svg';
 import imgPurpleIcon from '@/assets/icons/blocks/img-purple.svg';
 import questionPurpleIcon from '@/assets/icons/blocks/question-purple.svg';
 import csvPurpleIcon from '@/assets/icons/blocks/csv-purple.svg';
+import excelPurpleIcon from '@/assets/icons/blocks/excel-purple.svg';
 import emailPurpleIcon from '@/assets/icons/blocks/email-purple.svg';
 import requestPurpleIcon from '@/assets/icons/blocks/request-purple.svg';
 
-import { getBlocks, createBlock, updateBlock, deleteBlock, uploadImage } from '@/api/blocks';
+import { useBlocksStore } from '@/stores/blocksStore';
 
 const blockTypes = ref([
   { value: 'textBlock', name: 'Текст', imgPath: msgPurpleIcon },
   { value: 'imageBlock', name: 'Изображение', imgPath: imgPurpleIcon },
   { value: 'questionBlock', name: 'Вопрос', imgPath: questionPurpleIcon },
   { value: 'csvBlock', name: 'Сохранить в CSV', imgPath: csvPurpleIcon },
+  { value: 'excelBlock', name: 'Сохранить в Excel', imgPath: excelPurpleIcon },
   { value: 'emailBlock', name: 'Email письмо', imgPath: emailPurpleIcon },
   { value: 'apiBlock', name: 'API запрос', imgPath: requestPurpleIcon }
 ]);
@@ -30,6 +32,7 @@ const blockTypes = ref([
 const toast = useToast();
 const route = useRoute();
 const router = useRouter();
+const blocksStore = useBlocksStore();
 
 const blocks = ref([]);
 
@@ -44,7 +47,7 @@ const handleAddBlockEvent = async (blockType) => {
   const newBlock = { ...blockObjects[blockType.value] };
   newBlock.sequence_number = blocks.value.length + 1;
 
-  const { response, error } = await createBlock(
+  const { response, error } = await blocksStore.createBlock(
     route.params.projectId,
     route.params.dialogueId,
     newBlock
@@ -59,7 +62,7 @@ const handleAddBlockEvent = async (blockType) => {
 };
 
 const handleUpdateBlockEvent = async (editedBlock) => {
-  const { response, error } = await updateBlock(
+  const { response, error } = await blocksStore.updateBlock(
     route.params.projectId,
     route.params.dialogueId,
     editedBlock
@@ -79,7 +82,7 @@ const handleUpdateBlockEvent = async (editedBlock) => {
 
 const handleDeleteBlockEvent = async (block) => {
   blocks.value = blocks.value.filter(b => b.block_id !== block.block_id);
-  const { response, error } = await deleteBlock(
+  const { response, error } = await blocksStore.deleteBlock(
     route.params.projectId,
     route.params.dialogueId,
     block.block_id
@@ -92,7 +95,7 @@ const handleDeleteBlockEvent = async (block) => {
 };
 
 const handleUploadImageEvent = async (editedBlock, formData) => {
-  const { response, error } = await uploadImage(
+  const { response, error } = await blocksStore.uploadImage(
     route.params.projectId,
     route.params.dialogueId,
     editedBlock.block_id,
@@ -112,7 +115,7 @@ const handleUploadImageEvent = async (editedBlock, formData) => {
 };
 
 const getBlocksFromApi = async () => {
-  const { response, error } = await getBlocks(
+  const { response, error } = await blocksStore.getBlocks(
     route.params.projectId,
     route.params.dialogueId
   );
@@ -154,7 +157,7 @@ onMounted(async () => await getBlocksFromApi());
     <div class="container">
       <div class="page__content">
         <div class="page__header">
-          <h1 class="header__title">Диалог</h1>
+          <h1 class="header__title">💬 Диалог</h1>
           <AppButton
             class="add-block-btn"
             @click="openBlockTypesModal"

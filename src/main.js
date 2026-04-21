@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
+import { createPinia } from 'pinia';
 import App from '@/App.vue'
 import router from '@/router/router';
 import components from '@/components/UI';
@@ -11,7 +12,10 @@ for (const componentName in components) {
   app.component(componentName, components[componentName])
 }
 
+const pinia = createPinia();
+
 app
+  .use(pinia)
   .use(router)
   .use(ToastPlugin)
   .mount('#app')

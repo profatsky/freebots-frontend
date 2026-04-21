@@ -71,6 +71,7 @@ const summary = computed(() => {
   font-size: 20px;
   font-weight: 500;
   letter-spacing: 1px;
+  line-height: 1.3;
   margin-bottom: 12px;
 }
 
@@ -78,6 +79,7 @@ const summary = computed(() => {
   font-size: 16px;
   font-weight: 400;
   letter-spacing: 1px;
+  line-height: 1.4;
   color: var(--body-text);
   margin-bottom: 24px;
 }
@@ -100,12 +102,14 @@ const summary = computed(() => {
 
   .dialogue-template__name {
     font-size: 18px;
-    margin-bottom: 10px;
+    line-height: 1.3;
+    margin-bottom: 12px;
   }
 
   .dialogue-template__summary {
-    font-size: 14px;
-    margin-bottom: 18px;
+    font-size: 15px;
+    line-height: 1.4;
+    margin-bottom: 20px;
   }
 
   .dialogue-template__buttons {
@@ -115,8 +119,9 @@ const summary = computed(() => {
 
 @media (max-width: 767px) {
   .dialogue-template {
-    width: 160px;
-    padding: 12px 18px;
+    width: 100%;
+    max-width: 280px;
+    padding: 16px 20px;
     margin: 0;
     border-radius: 12px;
   }
@@ -130,18 +135,20 @@ const summary = computed(() => {
   }
 
   .dialogue-template__name {
-    font-size: 12px;
-    margin-bottom: 8px;
+    font-size: 16px;
+    line-height: 1.3;
+    margin-bottom: 12px;
   }
 
   .dialogue-template__summary {
-    font-size: 8px;
-    margin-bottom: 8px;
+    font-size: 14px;
+    line-height: 1.4;
+    margin-bottom: 16px;
   }
 
   .dialogue-template__buttons {
-    width: 160px;
-    gap: 6px;
+    width: 100%;
+    gap: 12px;
   }
 }
 </style>

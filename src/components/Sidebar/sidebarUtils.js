@@ -1,6 +1,6 @@
 import { ref, computed } from 'vue';
 
-export const collapsed = ref(true)
+export const collapsed = ref(false)
 export const toggleSidebar = () => (collapsed.value = !collapsed.value)
 
 export const SIDEBAR_WIDTH = ref(280);
@@ -16,10 +16,10 @@ export const resizeSidebar = () => {
     SIDEBAR_WIDTH.value = 280;
     SIDEBAR_WIDTH_COLLAPSED.value = 96;
   } else if (window.innerWidth <= 1169 && window.innerWidth >= 768) {
-    SIDEBAR_WIDTH.value = 210;
-    SIDEBAR_WIDTH_COLLAPSED.value = 72;
+    SIDEBAR_WIDTH.value = 240;
+    SIDEBAR_WIDTH_COLLAPSED.value = 80;
   } else {
-    SIDEBAR_WIDTH.value = 148;
-    SIDEBAR_WIDTH_COLLAPSED.value = 44;
+    SIDEBAR_WIDTH.value = 200;
+    SIDEBAR_WIDTH_COLLAPSED.value = 64;
   }
 };

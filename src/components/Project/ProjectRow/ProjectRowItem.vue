@@ -32,7 +32,7 @@ const chooseProjectEvent = () => {
 
 .project-row__name {
   font-size: 16px;
-  line-height: 34px;
+  line-height: 1.4;
   font-weight: 400;
   letter-spacing: 0.75px;
 
@@ -49,9 +49,9 @@ const chooseProjectEvent = () => {
   }
 
   .project-row__name {
-    font-size: 14px;
-    line-height: 28px;
-    padding: 6px 20px;
+    font-size: 15px;
+    line-height: 1.4;
+    padding: 12px 20px;
     border-radius: 12px;
   }
 }
@@ -63,10 +63,10 @@ const chooseProjectEvent = () => {
   }
 
   .project-row__name {
-    font-size: 8px;
-    line-height: 12px;
-    padding: 6px 8px;
-    border-radius: 8px;
+    font-size: 14px;
+    line-height: 1.4;
+    padding: 12px 16px;
+    border-radius: 12px;
   }
 }
 </style>

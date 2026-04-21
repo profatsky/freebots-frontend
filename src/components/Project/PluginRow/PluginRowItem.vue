@@ -34,18 +34,19 @@ const removePluginEvent = () => {
   gap: 24px;
   align-items: center;
   margin-bottom: 12px;
+  padding: 12px;
+  background-color: var(--light-gray);
+  border-radius: 8px;
+  border: 1px solid var(--gray-lines);
 }
 
 .plugin-row__name {
   font-size: 16px;
-  line-height: 34px;
-  font-weight: 400;
+  line-height: 1.4;
+  font-weight: 500;
   letter-spacing: 0.75px;
-
-  border-radius: 16px;
-  background-color: var(--main-white);
-  padding: 12px 28px;
   flex-grow: 1;
+  color: var(--main-black);
 }
 
 .plugin-row__btns {
@@ -57,14 +58,12 @@ const removePluginEvent = () => {
   .plugin-row {
     gap: 12px;
     margin-bottom: 12px;
+    padding: 14px;
   }
 
   .plugin-row__name {
-    font-size: 14px;
-    line-height: 28px;
-
-    border-radius: 12px;
-    padding: 6px 20px;
+    font-size: 15px;
+    line-height: 1.4;
   }
 
   .plugin-row__btns {
@@ -77,14 +76,12 @@ const removePluginEvent = () => {
   .plugin-row {
     gap: 6px;
     margin-bottom: 8px;
+    padding: 12px;
   }
 
   .plugin-row__name {
-    font-size: 8px;
-    line-height: 12px;
-
-    border-radius: 8px;
-    padding: 6px 8px;
+    font-size: 14px;
+    line-height: 1.4;
   }
 
   .plugin-row__btns {

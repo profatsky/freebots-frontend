@@ -8,11 +8,11 @@ const props = defineProps({
   }
 });
 
-const name = ref('');
+const name = ref(props.projectName);
 
 const emits = defineEmits(['update-project']);
 const updateProjectNameEvent = () => {
-  emits('update-project', name);
+  emits('update-project', name.value);
 };
 
 const submitForm = async () => {
@@ -61,7 +61,6 @@ const submitForm = async () => {
 
 .change-name__input{
   width: 312px;
-  background-color: var(--light-gray);
 }
 
 .change-name__btn {

@@ -4,14 +4,9 @@ import { useRoute } from 'vue-router';
 import { collapsed } from '@/components/Sidebar/sidebarUtils.js';
 
 const props = defineProps({
-  to: {
-    type: String,
-    required: true
-  },
-  iconPath: {
-    type: String,
-    required: true
-  }
+  to: { type: String, required: true },
+  icon: { type: String, required: true },
+  external: { type: Boolean, default: false },
 });
 
 const route = useRoute();
@@ -20,14 +15,22 @@ const isActive = computed(() => route.path === props.to)
 </script>
 
 <template name="fade">
-  <router-link :to="to" class="link" :class="{ active: isActive }">
-    <img :src="props.iconPath">
-    <transition name="fade">
-      <div v-if="!collapsed">
-        <slot></slot>
-      </div>
-    </transition>
-  </router-link>
+    <div v-if="external">
+      <a :href="to" target="_blank" class="link">
+        <span class="link-icon">{{ props.icon }}</span>
+        <transition name="fade">
+          <div v-if="!collapsed"><slot /></div>
+        </transition>
+      </a>
+    </div>
+  <div v-else>
+    <router-link :to="to" class="link" :class="{ active: isActive }">
+      <span class="link-icon">{{ props.icon }}</span>
+      <transition name="fade">
+        <div v-if="!collapsed"><slot /></div>
+      </transition>
+    </router-link>
+  </div>
 </template>
 
 <style scoped>
@@ -48,7 +51,7 @@ const isActive = computed(() => route.path === props.to)
 
   font-size: 20px;
   letter-spacing: 0.75px;
-  line-height: 34px;
+  line-height: 1.4;
   font-weight: 600;
   color: var(--body-text);
 
@@ -56,8 +59,14 @@ const isActive = computed(() => route.path === props.to)
   height: 34px;
 }
 
-.link img {
+.link-icon {
+  font-size: 32px;
+  width: 32px;
   height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 .link:hover {
@@ -66,33 +75,37 @@ const isActive = computed(() => route.path === props.to)
 
 @media (min-width: 768px) and (max-width: 1169px) {
   .link {
-    gap: 10px;
+    gap: 12px;
 
-    font-size: 16px;
-    line-height: 28px;
+    font-size: 18px;
+    line-height: 1.4;
 
-    padding: 16px 22px;
-    height: 28px;
+    padding: 20px 24px;
+    height: 32px;
   }
 
-  .link img {
-    height: 28px;
+  .link-icon {
+    font-size: 30px;
+    width: 30px;
+    height: 30px;
   }
 }
 
 @media (max-width: 767px) {
   .link {
-    gap: 6px;
+    gap: 10px;
     
-    font-size: 12px;
-    line-height: 20px;
+    font-size: 16px;
+    line-height: 1.4;
 
-    padding: 12px;
-    height: 20px;
+    padding: 16px 20px;
+    height: 28px;
   }
 
-  .link img {
-    height: 20px;
+  .link-icon {
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
   }
 }
 </style>

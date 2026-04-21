@@ -5,7 +5,7 @@ const props = defineProps({
   status: {
     type: String,
     required: true,
-    validator: (value) => ['error', 'success', 'primary'].includes(value)
+    validator: (value) => ['error', 'success', 'primary', 'warning'].includes(value)
   },
 });
 
@@ -14,6 +14,7 @@ const computedClasses = computed(() => ({
   'success': props.status === 'success',
   'error': props.status === 'error',
   'primary': props.status === 'primary',
+  'warning': props.status === 'warning',
 }));
 
 </script>
@@ -37,7 +38,8 @@ const computedClasses = computed(() => ({
   -webkit-box-sizing: border-box;
   border-radius: 16px;
   padding: 20px 24px;
-  width: 685px;
+  width: 100%;
+  max-width: 685px;
 }
 
 .notification__title {
@@ -75,6 +77,15 @@ const computedClasses = computed(() => ({
   color: var(--primary-dark);
 }
 
+.warning {
+  background-color: var(--warning-light);
+  border: 2px solid var(--warning);
+}
+
+.warning .notification__title {
+  color: var(--warning-dark);
+}
+
 .notification__description {
   font-size: 16px;
   letter-spacing: 0.75px;
@@ -84,12 +95,12 @@ const computedClasses = computed(() => ({
 @media (min-width: 768px) and (max-width: 1169px) {
   .notification {
     padding: 16px 20px;
-    width: 590px;
+    max-width: 100%;
   }
 
   .notification__title {
-    font-size: 14px;
-    margin-bottom: 8px;
+    font-size: 16px;
+    margin-bottom: 12px;
   }
 
   .notification__description {
@@ -100,21 +111,21 @@ const computedClasses = computed(() => ({
 
 @media (max-width: 767px) {
   .notification {
-    padding: 10px 12px;
-    width: 236px;
+    padding: 12px 16px;
+    max-width: 100%;
   }
 
   .notification__title {
-    line-height: 10px;
-    font-size: 10px;
+    line-height: 18px;
+    font-size: 14px;
     margin-bottom: 8px;
-    letter-spacing: 0px;
+    letter-spacing: 0.25px;
   }
 
   .notification__description {
-    font-size: 8px;
-    line-height: 10px;
-    letter-spacing: 0px;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.5px;
   }
 }
 </style>

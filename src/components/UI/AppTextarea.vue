@@ -26,7 +26,7 @@ function updateTextarea(event) {
 .textarea {
   background-color: var(--main-white);
   border-radius: 16px;
-  border: 0;
+  border: 2px solid var(--gray-lines);
   padding: 14px 24px;
 
   font-family: 'Montserrat';
@@ -34,6 +34,11 @@ function updateTextarea(event) {
   line-height: 28px;
   letter-spacing: 0.75px;
   color: var(--body-text);
+}
+
+.textarea:focus {
+  border-color: var(--primary);
+  outline: none;
 }
 
 .textarea::-webkit-input-placeholder {
@@ -44,17 +49,17 @@ function updateTextarea(event) {
   .textarea {
     border-radius: 12px;
     padding: 12px 20px;
-    font-size: 14px;
-    line-height: 20px;
+    font-size: 15px;
+    line-height: 1.4;
   }
 }
 
 @media (max-width: 767px) {
   .textarea {
-    border-radius: 8px;
-    padding: 8px 12px;
-    font-size: 8px;
-    line-height: 16px;
+    border-radius: 12px;
+    padding: 12px 16px;
+    font-size: 14px;
+    line-height: 1.4;
   }
 }
 

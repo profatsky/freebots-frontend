@@ -7,20 +7,6 @@ const props = defineProps({
     required: true,
   }
 });
-
-const emits = defineEmits(['update-project', 'delete-project', 'download-code']);
-
-const updateProjectEvent = (editedProject) => {
-  emits('update-project', editedProject)
-};
-
-const deleteProjectEvent = (projectId) => {
-  emits('delete-project', projectId)
-};
-
-const downloadCodeEvent = (projectId) => {
-  emits('download-code', projectId);
-};
 </script>
 
 <template>
@@ -28,10 +14,7 @@ const downloadCodeEvent = (projectId) => {
     <ProjectItem
       v-for="project in projects"
       :key="project.project_id"
-      :project="project"
-      @update-project="updateProjectEvent"
-      @delete-project="deleteProjectEvent"
-      @download-code="downloadCodeEvent"
+      :projectId="project.project_id"
     />
   </div>
 </template>

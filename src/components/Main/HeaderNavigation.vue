@@ -1,10 +1,7 @@
 <script setup>
-const emits = defineEmits(['open-register-form', 'open-login-form'])
-const openRegisterForm = () => {
-  emits('open-register-form');
-};
-const openLoginForm = () => {
-  emits('open-login-form');
+const emits = defineEmits(['open-auth-form'])
+const openAuthForm = () => {
+  emits('open-auth-form');
 };
 </script>
 
@@ -20,27 +17,22 @@ const openLoginForm = () => {
         </div>
         <div class="header-navbar__menu">
           <ul class="header-navbar__menu-list">
-            <li><a href="#advantages-section">Возможности</a></li>
+            <li><a href="#advantages-section">Преимущества</a></li>
+            <li><a href="#use-cases-section">Кейсы</a></li>
+            <li><a href="#pricing-section">Тарифы</a></li>
+            <li><a href="#social-proof-section">Отзывы</a></li>
             <li><a href="#manual-section">Руководство</a></li>
             <li><a href="#support-section">Поддержка</a></li>
           </ul>
         </div>
-        <div class="header-navbar__auth">
-          <button 
-            @click="openLoginForm"
-            class="login-btn"
-          >
-            Вход
-          </button>
-          <AppButton 
-            size="medium" 
-            importance="secondary"
-            @click="openRegisterForm"
-            class="register-btn"
-          >
-            Регистрация
-          </AppButton>
-        </div>
+        <AppButton 
+          size="medium" 
+          importance="secondary"
+          @click="openAuthForm"
+          class="auth-btn"
+        >
+          Войти
+        </AppButton>
       </nav>
     </div>
   </header>
@@ -79,21 +71,19 @@ const openLoginForm = () => {
   font-weight: 400;
   display: flex;
   justify-content: center;
-  gap: 64px;
-  padding: 0 64px;
+  gap: 28px;
+  padding: 0 40px;
 }
 
-.header-navbar__auth {
-  display: flex;
-  justify-content: space-between;
-  gap: 24px;
-  align-items: center;
+.header-navbar__menu-list a:hover {
+  color: var(--primary-dark);
 }
 
-.login-btn {
-  background: none;
-  font-size: 16px;
-  line-height: 24px;
+@media (min-width: 1170px) and (max-width: 1350px) {
+  .header-navbar__menu-list {
+    gap: 20px;
+    padding: 0 24px;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1169px) {
@@ -123,11 +113,7 @@ const openLoginForm = () => {
     font-size: 18px;
   }
 
-  .login-btn {
-    font-size: 12px;
-  }
-
-  .register-btn {
+  .auth-btn {
     display: none;
   }
 }

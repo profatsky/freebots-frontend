@@ -24,6 +24,13 @@ const csvBlock =  {
   data: {}
 };
 
+const excelBlock =  {
+  sequence_number: 0,
+  type: 'excel_block',
+  file_path: '',
+  data: {}
+};
+
 const emailBlock = {
   sequence_number: 0,
   type: 'email_block',
@@ -47,5 +54,6 @@ export default {
   questionBlock,
   csvBlock,
   emailBlock,
+  excelBlock,
   apiBlock
 }

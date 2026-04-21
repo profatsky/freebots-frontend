@@ -102,53 +102,55 @@ export default {
 
 @media (min-width: 768px) and (max-width: 1169px) {
   .btn-large {
-    height: 48px;
-    padding: 8px 16px;
-    min-width: 160px;
+    height: 52px;
+    padding: 12px 20px;
+    min-width: 180px;
+    font-size: 15px;
   }
 
   .btn-medium {
-    height: 40px;
-    padding: 8px 16px;
-    min-width: 160px;
-    font-size: 14px;
+    height: 48px;
+    padding: 10px 18px;
+    min-width: 180px;
+    font-size: 15px;
   }
 
   .btn-small {
-    height: 32px;
-    padding: 4px 16px;
+    height: 40px;
+    padding: 8px 16px;
     min-width: 160px;
+    font-size: 13px;
   }
 }
 
 @media (max-width: 767px) {
   .btn-large {
-    height: 32px;
-    min-width: 100px;
-    padding: 6px 16px;
+    height: 48px;
+    min-width: 120px;
+    padding: 12px 20px;
 
-    font-size: 12px;
-    letter-spacing: 0px;
+    font-size: 14px;
+    letter-spacing: 0.5px;
   }
 
   .btn-medium {
-    height: 24px;
-    min-width: 100px;
-    padding: 6px 16px;
+    height: 44px;
+    min-width: 120px;
+    padding: 10px 18px;
 
-    font-size: 8px;
-    line-height: 10px;
-    letter-spacing: 0px;
+    font-size: 14px;
+    line-height: 1.2;
+    letter-spacing: 0.5px;
   }
 
   .btn-small {
-    height: 18px;
+    height: 36px;
     min-width: 100px;
-    padding: 2px 8px;
+    padding: 8px 16px;
 
-    font-size: 8px;
-    line-height: 10px;
-    letter-spacing: 0px;
+    font-size: 12px;
+    line-height: 1.2;
+    letter-spacing: 0.5px;
   }
 }
 </style>

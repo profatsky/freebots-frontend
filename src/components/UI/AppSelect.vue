@@ -50,9 +50,14 @@ const computedClasses = computed(() => ({
 
   background-color: var(--main-white);
   min-width: 200px;
-  border: 0;
+  border: 2px solid var(--gray-lines);
   border-radius: 10px;
   appearance: none;
+}
+
+.select:focus {
+  border-color: var(--primary);
+  outline: none;
 }
 
 .select-small {
@@ -90,19 +95,19 @@ select::-ms-expand {
   }
 
   .select-medium {
-    font-size: 14px;
-    line-height: 28px;
+    font-size: 15px;
+    line-height: 1.4;
 
-    padding: 6px 40px 6px 20px;
+    padding: 12px 40px 12px 20px;
     border-radius: 12px;
   }
 
   .select-small {
     font-size: 14px;
-    line-height: 20px;
+    line-height: 1.3;
 
-    padding: 6px 40px 6px 20px;
-    border-radius: 8px;
+    padding: 8px 40px 8px 20px;
+    border-radius: 10px;
   }
 
   .select:not([multiple]) {
@@ -115,19 +120,19 @@ select::-ms-expand {
     min-width: 60px;
   }
   .select-medium {
-    font-size: 8px;
-    line-height: 12px;
+    font-size: 14px;
+    line-height: 1.4;
 
-    padding: 6px 24px 6px 8px;
-    border-radius: 8px;
+    padding: 10px 30px 10px 12px;
+    border-radius: 12px;
   }
 
   .select-small {
-    font-size: 8px;
-    line-height: 12px;
+    font-size: 13px;
+    line-height: 1.3;
 
-    padding: 4px 24px 4px 8px;
-    border-radius: 8px;
+    padding: 8px 30px 8px 12px;
+    border-radius: 10px;
   }
 
   .select:not([multiple]) {

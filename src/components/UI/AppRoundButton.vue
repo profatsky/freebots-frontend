@@ -33,6 +33,11 @@ const computedClasses = computed(() => ({
   align-items: center;
 }
 
+.btn img {
+  width: 20px;
+  height: 20px;
+}
+
 .btn-redirect {
   background-color: var(--primary);
 }
@@ -43,13 +48,23 @@ const computedClasses = computed(() => ({
 
 @media (min-width: 768px) and (max-width: 1169px) { 
   .btn {
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
+  }
+
+  .btn img {
+    width: 18px;
+    height: 18px;
   }
 }
 
 @media (max-width: 767px) {
   .btn {
+    width: 32px;
+    height: 32px;
+  }
+
+  .btn img {
     width: 16px;
     height: 16px;
   }

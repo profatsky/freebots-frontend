@@ -12,7 +12,7 @@
           </p>
         </div>
         <div class="footer__description">
-          <p>developed by profatsky</p>
+          <p>developed by <a href="https://жыбийрыр.рф" target="_blank" rel="noopener">жыбийрыр.рф</a></p>
         </div>
       </div>
     </div>

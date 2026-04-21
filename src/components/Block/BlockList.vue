@@ -43,7 +43,7 @@ onBeforeMount(() => { numberQuestionBlocks() });
 </script>
 
 <template>
-  <div v-if="blocks.length > 0">
+  <div v-if="blocks.length > 0" class="block-list">
     <BlockItem
       v-for="block in blocks"
       :key="block.block_id"
@@ -55,28 +55,76 @@ onBeforeMount(() => { numberQuestionBlocks() });
     />
   </div>
   <div v-else class="block-list__hint">
-    <p>В этом диалоге нет блоков</p>
+    <div class="hint-icon">📝</div>
+    <p class="hint-text">В этом диалоге нет блоков</p>
   </div>
 </template>
 
 <style scoped>
+.block-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
 .block-list__hint {
-  font-size: 24px;
-  line-height: 28px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--body-text);
+}
+
+.hint-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  opacity: 0.6;
+}
+
+.hint-text {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0;
+  color: var(--body-text);
 }
 
 @media (min-width: 768px) and (max-width: 1169px) {
+  .block-list {
+    gap: 12px;
+  }
+
   .block-list__hint {
+    padding: 32px 16px;
+  }
+
+  .hint-icon {
+    font-size: 40px;
+    margin-bottom: 12px;
+  }
+
+  .hint-text {
     font-size: 16px;
-    line-height: 20px;
   }
 }
 
 @media (max-width: 767px) { 
+  .block-list {
+    gap: 8px;
+  }
+
   .block-list__hint {
-    font-size: 12px;
-    line-height: 16px;
+    padding: 24px 12px;
+  }
+
+  .hint-icon {
+    font-size: 32px;
+    margin-bottom: 8px;
+  }
+
+  .hint-text {
+    font-size: 14px;
   }
 }
 </style>

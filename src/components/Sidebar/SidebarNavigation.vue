@@ -3,12 +3,6 @@ import { onMounted, onUnmounted } from 'vue';
 import { collapsed, toggleSidebar, sidebarWidth, resizeSidebar } from '@/components/Sidebar/sidebarUtils';
 import SidebarLink from '@/components/Sidebar/SidebarLink.vue';
 
-import botGrayIcon from '@/assets/icons/bot-gray.svg';
-import layoutGrayIcon from '@/assets/icons/layout-gray.svg';
-import blockGrayIcon from '@/assets/icons/blocks-gray.svg';
-import scrollGrayIcon from '@/assets/icons/scroll-gray.svg';
-import profileGrayIcon from '@/assets/icons/profile-gray.svg';
-
 onMounted(() => {
   window.addEventListener('resize', resizeSidebar);
 });
@@ -29,11 +23,11 @@ onUnmounted(() => {
         </p>
       </Transition>
     </div>
-    <SidebarLink to="/projects" :iconPath="botGrayIcon">Боты</SidebarLink>
-    <SidebarLink to="/templates" :iconPath="layoutGrayIcon">Шаблоны</SidebarLink>
-    <SidebarLink to="/plugins" :iconPath="blockGrayIcon">Плагины</SidebarLink>
-    <SidebarLink to="/manual" :iconPath="scrollGrayIcon">Руководство</SidebarLink>
-    <SidebarLink to="/profile" :iconPath="profileGrayIcon">Профиль</SidebarLink>
+    <SidebarLink to="/projects" icon="🤖">Ваши боты</SidebarLink>
+    <SidebarLink to="/templates" icon="📋">Шаблоны</SidebarLink>
+    <SidebarLink to="/plugins" icon="🧩">Плагины</SidebarLink>
+    <SidebarLink to="/manual" icon="📚" external>Руководство</SidebarLink>
+    <SidebarLink to="/profile" icon="👤">Профиль</SidebarLink>
     <span
       class="collapse-icon"
       :class="{ 'rotate-180': collapsed }"
@@ -111,47 +105,48 @@ onUnmounted(() => {
 
 @media (min-width: 768px) and (max-width: 1169px) {
   .logo {
-    margin: 28px 0px 18px 18px;
+    margin: 32px 0px 24px 24px;
+    gap: 14px;
   }
 
   .logo__img {
-    height: 36px;
+    height: 42px;
   }
   
   .logo__text {
-    font-size: 24px;
+    font-size: 28px;
   }
 
   .collapse-icon {
-    padding: 22px;
+    padding: 28px;
   }
 
   .collapse-icon img {
-    height: 28px;
+    height: 30px;
   }
 }
 
 @media (max-width: 767px) {
   .logo {
-    margin: 18px 0px 16px 8px;
-    gap: 8px;
+    margin: 24px 0px 20px 16px;
+    gap: 12px;
   }
 
   .logo__img {
-    height: 28px;
+    height: 36px;
   }
 
   .logo__text {
-    font-size: 18px;
-    line-height: 20px;
+    font-size: 24px;
+    line-height: 1.2;
   }
 
   .collapse-icon {
-    padding: 10px;
+    padding: 20px;
   }
 
   .collapse-icon img {
-    height: 24px;
+    height: 28px;
   }
 }
 </style>

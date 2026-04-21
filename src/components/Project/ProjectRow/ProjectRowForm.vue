@@ -26,7 +26,8 @@ const chooseProjectEvent = (project) => {
 
 <style scoped>
 .choose-project {
-  width: 360px;
+  width: 100%;
+  max-width: 400px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -35,36 +36,38 @@ const chooseProjectEvent = (project) => {
 }
 
 .choose-project__title {
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 600px;
-  line-height: 32px;
+  line-height: 1.2;
   margin-bottom: 8px;
   text-align: center;
 }
 
 @media (min-width: 768px) and (max-width: 1169px) {
   .choose-project {
-    width: 280px;
-    gap: 12px;
+    width: 100%;
+    max-width: 350px;
+    gap: 16px;
   }
 
   .choose-project__title {
-    font-size: 24px;
-    line-height: 28px;
-    margin-bottom: 6px;
+    font-size: 22px;
+    line-height: 1.2;
+    margin-bottom: 8px;
   }
 }
 
 @media (max-width: 767px) { 
   .choose-project {
-    width: 200px;
-    gap: 8px
+    width: 100%;
+    max-width: 320px;
+    gap: 16px;
   }
 
   .choose-project__title {
-    font-size: 16px;
-    line-height: 20px;
-    margin-bottom: 4px;
+    font-size: 20px;
+    line-height: 1.2;
+    margin-bottom: 8px;
   }
 }
 </style>

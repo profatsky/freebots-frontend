@@ -35,25 +35,20 @@ const addBlockEvent = (blockType) => {
 
 <style scoped>
 .block-types {
-  width: 198px;
-
   display: flex;
   flex-direction: column;
-  gap: 24px;
-
-  margin: 0 auto;
+  gap: 12px;
 }
 
 @media (min-width: 768px) and (max-width: 1169px) {
   .block-types {
-    gap: 20px;
+    gap: 10px;
   }
 }
 
 @media (max-width: 767px) { 
   .block-types {
-    width: 160px;
-    gap: 16px;
+    gap: 8px;
   }
 }
 </style>

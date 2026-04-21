@@ -2,21 +2,23 @@
 import { ref, onMounted } from 'vue';
 import { useToast } from 'vue-toast-notification';
 
-import { getPlugins, addPluginToProject } from '@/api/plugins';
-import { getUserProjects } from '@/api/projects';
+import { usePluginsStore } from '@/stores/pluginsStore';
+import { useProjectStore } from '@/stores/projectStore';
 
 import SidebarNavigation from '@/components/Sidebar/SidebarNavigation.vue';
 import ProjectRowForm from '@/components/Project/ProjectRow/ProjectRowForm.vue';
 import PluginList from '@/components/Plugin/PluginList.vue';
 
 const toast = useToast();
+const pluginsStore = usePluginsStore();
+const projectStore = useProjectStore();
 const plugins = ref([]);
 const isPluginsLoading = ref(true);
 const projects = ref([]);
 const chosenPlugin = ref({});
 
 onMounted(async () => {
-  const { response, error } = await getPlugins();
+  const { response, error } = await pluginsStore.getPlugins();
   if (error.value) {
     toast.error('Что-то пошло не так...')
   } else {
@@ -39,7 +41,7 @@ const closeProjectsListModal = () => {
 };
 
 const handleAddPluginEvent = async (plugin) => {
-  const { response, error } = await getUserProjects();
+  const { response, error } = await projectStore.getUserProjects();
   if (error.value) {
     toast.error('Что-то пошло не так...')
   } else {
@@ -58,7 +60,7 @@ const handleAddPluginEvent = async (plugin) => {
 };
 
 const handleChooseProjectEvent = async (project) => {
-  const { response, error } = await addPluginToProject(project.project_id, chosenPlugin.value.plugin_id);
+  const { response, error } = await pluginsStore.addPluginToProject(project.project_id, chosenPlugin.value.plugin_id);
   if (error.value) {
     toast.error('Что-то пошло не так...')
   } else {
@@ -87,10 +89,10 @@ const handleChooseProjectEvent = async (project) => {
     <div class="container">
       <div class="page__content">
         <div class="page__header">
-          <h1 class="header__title">Плагины</h1>
+          <h1 class="header__title">🧩 Плагины (готовые функции)</h1>
         </div>
         <p class="page__hint">
-          Плагины - это готовые программные модули, которые легко интегрируются в чат-ботов. Плагины добавляют новый функционал, который невозможно создать с нуля без навыков программирования.
+          Плагины - это готовые функции, которые уже решают определенные задачи. Вы можете просто добавить их в вашего чат-бота и использовать.
         </p>
         <PluginList
           v-if="!isPluginsLoading"
@@ -130,13 +132,13 @@ const handleChooseProjectEvent = async (project) => {
   }
 
   .header__title {
-    font-size: 24px;
-    line-height: 28px;
+    font-size: 28px;
+    line-height: 1.2;
   }
 
   .page__hint {
-    font-size: 14px;
-    line-height: 18px;
+    font-size: 16px;
+    line-height: 1.4;
     margin-bottom: 20px;
   }
 }
@@ -147,15 +149,15 @@ const handleChooseProjectEvent = async (project) => {
   }
 
   .header__title {
-    font-size: 16px;
-    line-height: 20px;
+    font-size: 24px;
+    line-height: 1.2;
   }
 
   .page__hint {
-    font-size: 8px;
-    line-height: 10px;
-    letter-spacing: 0px;
-    margin-bottom: 12px;
+    font-size: 14px;
+    line-height: 1.4;
+    letter-spacing: 0.5px;
+    margin-bottom: 16px;
     width: 100%;
   }
 }

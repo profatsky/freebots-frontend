@@ -8,6 +8,7 @@ import QuestionBlockItem from '@/components/Block/BlockInstance/QuestionBlockIte
 import CSVBlockItem from '@/components/Block/BlockInstance/CSVBlockItem.vue';
 import EmailBlockItem from '@/components/Block/BlockInstance/EmailBlockItem.vue';
 import ApiBlockItem from '@/components/Block/BlockInstance/ApiBlockItem.vue';
+import ExcelBlockItem from '@/components/Block/BlockInstance/ExcelBlockItem.vue';
 
 const props = defineProps({
   block: {
@@ -52,6 +53,9 @@ switch (props.block.type) {
     break;
   case 'csv_block':
     currentComponent.value = CSVBlockItem;
+    break;
+  case 'excel_block':
+    currentComponent.value = ExcelBlockItem;
     break;
   case 'email_block':
     currentComponent.value = EmailBlockItem;
